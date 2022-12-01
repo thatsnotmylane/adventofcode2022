@@ -1,13 +1,12 @@
 ﻿namespace adventofcode2022.thatsnotmylane;
 
-public class Day01
+public class Day01 : AdventBase
 {
-    public Day01()
+    public Day01() : base("input01.txt")
     {
-        var input = File.ReadAllLines("../../../input01.txt");
         var calorieCounts = Array.Empty<int>();
         var thisElf = 0;
-        foreach (var line in input)
+        foreach (var line in _input)
         {
             if(true == int.TryParse(line, out var individualCalorie))
             {
@@ -20,13 +19,15 @@ public class Day01
             }
         }
 
-        Console.WriteLine($"Part One: {calorieCounts.Max()}");
+        _partOne = calorieCounts.Max();
 
         var topThreeTotal = calorieCounts
             .OrderByDescending(c => c)
             .Take(3)
             .Sum();
 
-        Console.WriteLine($"Part Two: {topThreeTotal}");
+        _partTwo = topThreeTotal;
     }
+
+
 }
