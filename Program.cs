@@ -1,6 +1,17 @@
 ﻿using adventofcode2022.thatsnotmylane;
 
-var dayOne = new Day01();
-dayOne.DisplayAnswers();
+var runAll = false;
+
+var dayTwo = new Day02();
+dayTwo.DisplayAnswers();
+
+if (runAll == true)
+{
+    var dayOne = new Day01();
+    dayOne.DisplayAnswers();
+}
+
+
+
 
 
