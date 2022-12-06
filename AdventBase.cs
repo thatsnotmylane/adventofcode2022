@@ -7,7 +7,9 @@ public class AdventBase
     public int _partTwo { get; set; } = 0;
     public AdventBase(string fileName)
     {
+     
         _input = File.ReadAllLines($"../../../{fileName}");
+        
     }
 
     public void DisplayAnswers()
