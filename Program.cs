@@ -2,13 +2,17 @@
 
 var runAll = false;
 
-var daySeven = new Day07();
-daySeven.DisplayAnswers();
+var dayTen = new Day10();
+dayTen.DisplayAnswers();
 
 if (runAll == true)
 {
+    var daySeven = new Day07();
+    daySeven.DisplayAnswers();
+
+
     var daySix = new Day06();
-daySix.DisplayAnswers();
+    daySix.DisplayAnswers();
 
 
     var dayThree = new Day03();
