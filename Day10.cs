@@ -40,6 +40,8 @@ public class Day10 : AdventBase
 
         _partOne = CalculateSignalStrength(20) + CalculateSignalStrength(60) + CalculateSignalStrength(100) + CalculateSignalStrength(140) + CalculateSignalStrength(180) + CalculateSignalStrength(220);
 
+        var screenDict = new Dictionary<int, char[]>();
+
         var h = 0;
         var v = 0;
         var spritePos = _registerRecord[1];
@@ -51,7 +53,27 @@ public class Day10 : AdventBase
             h = normalizeHorizontal(cycle);
             v = normalizeVertical(cycle);
 
+            if(screenDict.ContainsKey(v) == false)
+            {
+                screenDict[v] = new char[40];
+            }
 
+            if(pixels.Contains(h) == true)
+            {
+                screenDict[v][h] = '#';
+            }
+            else
+            {
+                screenDict[v][h] = ' ';
+            }
+
+            
+
+        }
+
+        foreach(var screenLine in screenDict)
+        {
+            Console.WriteLine(screenLine.Value);
         }
     }
 
@@ -71,23 +93,23 @@ public class Day10 : AdventBase
 
     int normalizeVertical(int cycle)
     {
-        if(cycle < 41)
+        if(cycle <= 40)
         {
             return 0;
         }
-        else if(cycle >= 41 && cycle < 80)
+        else if(cycle >= 41 && cycle <= 80)
         {
             return 1;
         }
-        else if (cycle >= 81 && cycle < 120)
+        else if (cycle >= 81 && cycle <= 120)
         {
             return 2;
         }
-        else if (cycle >= 121 && cycle < 160)
+        else if (cycle >= 121 && cycle <= 160)
         {
             return 3;
         }
-        else if (cycle >= 161 && cycle < 200)
+        else if (cycle >= 161 && cycle <= 200)
         {
             return 4;
         }
